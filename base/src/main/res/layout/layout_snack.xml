@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <View
+        android:id="@+id/sb_divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp" />
+
+    <LinearLayout
+        android:id="@+id/sb_inner"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:id="@+id/sb_text"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:textColor="@android:color/white"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/sb_action"
+            android:textColor="@android:color/white"
+            android:clickable="true"
+            android:background="@drawable/selector_pressed_transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</merge>

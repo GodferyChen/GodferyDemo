@@ -1,0 +1,21 @@
+<resources>
+
+	<style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimary</item>
+		<item name="colorAccent">@color/colorPrimary</item>
+		<item name="actionBarSize">48dp</item>
+		<item name="android:windowBackground">@color/windowBackground</item>
+		<item name="actionModeBackground">@color/actionModeBackground</item>
+		<item name="android:actionModeBackground">@color/actionModeBackground</item>
+		<!--<item name="windowActionBar">false</item>-->
+		<!--<item name="windowNoTitle">true</item>-->
+	</style>
+
+	<style name="ToolbarStyle" parent="@style/Theme.AppCompat">
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="actionBarSize">48dp</item>
+		<item name="android:textColorPrimary">@android:color/white</item>
+	</style>
+
+</resources>

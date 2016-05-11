@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<color name="headerTextColor">@android:color/white</color>
+	<color name="headerBackground">@color/colorPrimary</color>
+
+	<dimen name="headerHeight">48dp</dimen>
+	<dimen name="headerLeftRightMinWidth">48dp</dimen>
+	<dimen name="headerLeftRightMaxWidth">96dp</dimen>
+
+</resources>
