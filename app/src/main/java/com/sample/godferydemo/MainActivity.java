@@ -95,7 +95,7 @@ public class MainActivity extends BaseActivity
 //
 //        }
         else if (id == R.id.nav_manage) {
-
+            startActivity(new Intent(mActivity,RxJavaActivity.class));
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
