@@ -119,6 +119,11 @@ public class SlideDialView extends View {
     }
 
     @Override
+    public void offsetTopAndBottom(int offset) {
+        super.offsetTopAndBottom(offset);
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
 
         // 灰色透明的圆圈

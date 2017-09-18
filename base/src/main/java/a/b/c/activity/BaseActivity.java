@@ -60,7 +60,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void cancelCall() {
-        if (mCall !=null) mCall.cancel();
+        if (mCall != null) mCall.cancel();
     }
 
     @Override
@@ -84,7 +84,8 @@ public class BaseActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             if (Build.VERSION.SDK_INT >= 21) {
                 window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS |
+                        WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                 window.setStatusBarColor(Color.TRANSPARENT);
             }
@@ -93,18 +94,21 @@ public class BaseActivity extends AppCompatActivity {
 
     private int initStatusBarByToolbar() {
         Resources res = getResources();
-        int statusBarHeight = res.getDimensionPixelSize(res.getIdentifier("status_bar_height", "dimen", "android"));
+        int statusBarHeight = res.getDimensionPixelSize(res.getIdentifier("status_bar_height",
+                "dimen", "android"));
         View statusBarPlaceholder = findViewById(R.id.header_v_place_holder);
-        if (statusBarPlaceholder != null) statusBarPlaceholder.getLayoutParams().height = statusBarHeight;
+        if (statusBarPlaceholder != null)
+            statusBarPlaceholder.getLayoutParams().height = statusBarHeight;
         return statusBarHeight;
     }
 
     private ActionBar initActionBarByToolbar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (mToolbar !=null)setSupportActionBar(mToolbar);
+        if (mToolbar != null) setSupportActionBar(mToolbar);
         mActionBar = getSupportActionBar();
         if (mActionBar != null) {
-            mActionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP | ActionBar.DISPLAY_SHOW_TITLE);
+            mActionBar.setDisplayOptions(ActionBar.DISPLAY_HOME_AS_UP | ActionBar
+                    .DISPLAY_SHOW_TITLE);
             mActionBar.setHomeAsUpIndicator(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
         }
         return mActionBar;

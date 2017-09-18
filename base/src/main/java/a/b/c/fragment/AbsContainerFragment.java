@@ -18,122 +18,129 @@ import a.b.c.impl.Callback;
 
 public abstract class AbsContainerFragment extends BaseFragment implements Callback {
 
-	private boolean isDestroy;
+    private boolean isDestroy;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		isDestroy = false;
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        isDestroy = false;
+    }
 
-	@CallSuper
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		isDestroy = true;
-	}
+    @CallSuper
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        isDestroy = true;
+    }
 
-	@CallSuper
-	@Nullable
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return mRootView;
-	}
+    @CallSuper
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
+            savedInstanceState) {
+        return mRootView;
+    }
 
-	@Override
-	public void showEmpty(int ivResId, @NonNull String tips) {
-		if (!isDestroy()) {
-			getChildFragmentManager()
-					.beginTransaction()
-					.replace(R.id.containerTopLayer, EmptyFragment.newInstance(ivResId, tips), EmptyFragment.class.getSimpleName())
-					.commitAllowingStateLoss();
-		}
-	}
+    @Override
+    public void showEmpty(int ivResId, @NonNull String tips) {
+        if (!isDestroy()) {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerTopLayer, EmptyFragment.newInstance(ivResId, tips),
+							EmptyFragment.class.getSimpleName())
+                    .commitAllowingStateLoss();
+        }
+    }
 
-	@Override
-	public void showEmpty(@LayoutRes int layoutResId) {
-		if (!isDestroy()) {
-			getChildFragmentManager()
-					.beginTransaction()
-					.replace(R.id.containerTopLayer, EmptyFragment.newInstance(layoutResId), EmptyFragment.class.getSimpleName())
-					.commitAllowingStateLoss();
-		}
-	}
+    @Override
+    public void showEmpty(@LayoutRes int layoutResId) {
+        if (!isDestroy()) {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerTopLayer, EmptyFragment.newInstance(layoutResId),
+							EmptyFragment.class.getSimpleName())
+                    .commitAllowingStateLoss();
+        }
+    }
 
-	@Override
-	public void showLoading() {
-		if (!isDestroy()) {
-			getChildFragmentManager()
-					.beginTransaction()
-					.replace(R.id.containerTopLayer, LoadingFragment.newInstance(), LoadingFragment.class.getSimpleName())
-					.commitAllowingStateLoss();
-		}
-	}
+    @Override
+    public void showLoading() {
+        if (!isDestroy()) {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerTopLayer, LoadingFragment.newInstance(),
+							LoadingFragment.class.getSimpleName())
+                    .commitAllowingStateLoss();
+        }
+    }
 
-	@Override
-	public void showLoading(@LayoutRes int layoutResId) {
-		if (!isDestroy()) {
-			getChildFragmentManager()
-					.beginTransaction()
-					.replace(R.id.containerTopLayer, LoadingFragment.newInstance(layoutResId), LoadingFragment.class.getSimpleName())
-					.commitAllowingStateLoss();
-		}
-	}
+    @Override
+    public void showLoading(@LayoutRes int layoutResId) {
+        if (!isDestroy()) {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerTopLayer, LoadingFragment.newInstance(layoutResId),
+							LoadingFragment.class.getSimpleName())
+                    .commitAllowingStateLoss();
+        }
+    }
 
-	@Override
-	public void hideLoading() {
-		if (!isDestroy()) {
-			getChildFragmentManager()
-					.beginTransaction()
-					.replace(R.id.containerTopLayer, new Fragment(), "null")
-					.commitAllowingStateLoss();
-		}
-	}
+    @Override
+    public void hideLoading() {
+        if (!isDestroy()) {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerTopLayer, new Fragment(), "null")
+                    .commitAllowingStateLoss();
+        }
+    }
 
-	@Override
-	public void showReload() {
-		if (!isDestroy()) {
-			getChildFragmentManager()
-					.beginTransaction()
-					.replace(R.id.containerTopLayer, ReloadFragment.newInstance(), ReloadFragment.class.getSimpleName())
-					.commitAllowingStateLoss();
-		}
-	}
+    @Override
+    public void showReload() {
+        if (!isDestroy()) {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerTopLayer, ReloadFragment.newInstance(), ReloadFragment
+							.class.getSimpleName())
+                    .commitAllowingStateLoss();
+        }
+    }
 
-	@Override
-	public void showReload(@DrawableRes int ivResId, @NonNull String tips, @NonNull String action) {
-		if (!isDestroy()) {
-			getChildFragmentManager()
-					.beginTransaction()
-					.replace(R.id.containerTopLayer, ReloadFragment.newInstance(ivResId, tips, action), ReloadFragment.class.getSimpleName())
-					.commitAllowingStateLoss();
-		}
-	}
+    @Override
+    public void showReload(@DrawableRes int ivResId, @NonNull String tips, @NonNull String action) {
+        if (!isDestroy()) {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerTopLayer, ReloadFragment.newInstance(ivResId, tips,
+							action), ReloadFragment.class.getSimpleName())
+                    .commitAllowingStateLoss();
+        }
+    }
 
-	@Override
-	public void showReload(@LayoutRes int layoutResId) {
-		if (!isDestroy()) {
-			getChildFragmentManager()
-					.beginTransaction()
-					.replace(R.id.containerTopLayer, ReloadFragment.newInstance(layoutResId), ReloadFragment.class.getSimpleName())
-					.commitAllowingStateLoss();
-		}
-	}
+    @Override
+    public void showReload(@LayoutRes int layoutResId) {
+        if (!isDestroy()) {
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerTopLayer, ReloadFragment.newInstance(layoutResId), ReloadFragment.class.getSimpleName())
+                    .commitAllowingStateLoss();
+        }
+    }
 
-	@Override
-	public void showContent(@NonNull Fragment fragment) {
-		if (!isDestroy()) {
-			Log.d(TAG, "showContent() called with: " + "fragment = [" + fragment + "]");
-			getChildFragmentManager()
-					.beginTransaction()
-					.replace(R.id.container, fragment, fragment.getClass().getSimpleName())
-					.commitAllowingStateLoss();
-		}
-	}
+    @Override
+    public void showContent(@NonNull Fragment fragment) {
+        if (!isDestroy()) {
+            Log.d(TAG, "showContent() called with: " + "fragment = [" + fragment + "]");
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, fragment, fragment.getClass().getSimpleName())
+                    .commitAllowingStateLoss();
+        }
+    }
 
-	@CheckResult
-	@Override
-	public boolean isDestroy() {
-		return isDestroy;
-	}
+    @CheckResult
+    @Override
+    public boolean isDestroy() {
+        return isDestroy;
+    }
 }

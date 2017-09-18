@@ -84,7 +84,8 @@ public class AvatarActivity extends BaseActivity {
         Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             fileName = System.currentTimeMillis() + ".jpg";
-            camera.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), fileName)));
+            camera.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment
+                    .getExternalStorageDirectory(), fileName)));
         }
         startActivityForResult(camera, REQ_CAMERA);
     }
@@ -241,7 +242,8 @@ public class AvatarActivity extends BaseActivity {
     private Uri queryUriForImage(String path) {
         Uri contentUri = Uri.parse("content://media/external/images/media");
         Uri uri = null;
-        Cursor cursor = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, MediaStore.Images.Media.DEFAULT_SORT_ORDER);
+        Cursor cursor = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                null, null, null, MediaStore.Images.Media.DEFAULT_SORT_ORDER);
         if (cursor != null) {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
@@ -263,16 +265,19 @@ public class AvatarActivity extends BaseActivity {
         boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
         String authority = uri.getAuthority();
         if (isKitKat && DocumentsContract.isDocumentUri(this, uri)) {// DocumentProvider
-            if (authority.equals("com.android.externalstorage.documents")) {// ExternalStorageProvider
+            if (authority.equals("com.android.externalstorage.documents")) {//
+                // ExternalStorageProvider
                 String id = DocumentsContract.getDocumentId(uri);
                 String[] splits = id.split(":");
                 String type = splits[0];
                 if (type.equalsIgnoreCase("primary")) {
                     return Environment.getExternalStorageDirectory() + "/" + splits[1];
                 }
-            } else if (authority.equals("com.android.providers.downloads.documents")) {// DownloadsProvider
+            } else if (authority.equals("com.android.providers.downloads.documents")) {//
+                // DownloadsProvider
                 String id = DocumentsContract.getDocumentId(uri);
-                Uri contentUri = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+                Uri contentUri = ContentUris.withAppendedId(Uri.parse
+                        ("content://downloads/public_downloads"), Long.valueOf(id));
                 return getDataColumn(contentUri, null, null);
             } else if (authority.equals("com.android.providers.media.documents")) {// MediaProvider
                 final String id = DocumentsContract.getDocumentId(uri);
@@ -334,18 +339,22 @@ public class AvatarActivity extends BaseActivity {
     }
 
     private String getAbsolutePathFromNoStandardUri(Uri uri) {
-        String pre1 = "file://" + Environment.getExternalStorageDirectory().getPath() + File.separator;
+        String pre1 = "file://" + Environment.getExternalStorageDirectory().getPath() + File
+                .separator;
         String pre2 = "file://" + "/sdcard" + File.separator;
         String pre3 = "file://" + "/mnt/sdcard" + File.separator;
         String path = "";
         String uriStr = uri.toString();
         uriStr = Uri.decode(uriStr);
         if (uriStr.startsWith(pre1)) {
-            path = Environment.getExternalStorageDirectory().getPath() + File.separator + uriStr.substring(pre1.length());
+            path = Environment.getExternalStorageDirectory().getPath() + File.separator + uriStr
+                    .substring(pre1.length());
         } else if (uriStr.startsWith(pre2)) {
-            path = Environment.getExternalStorageDirectory().getPath() + File.separator + uriStr.substring(pre2.length());
+            path = Environment.getExternalStorageDirectory().getPath() + File.separator + uriStr
+                    .substring(pre2.length());
         } else if (uriStr.startsWith(pre3)) {
-            path = Environment.getExternalStorageDirectory().getPath() + File.separator + uriStr.substring(pre3.length());
+            path = Environment.getExternalStorageDirectory().getPath() + File.separator + uriStr
+                    .substring(pre3.length());
         }
         return path;
     }

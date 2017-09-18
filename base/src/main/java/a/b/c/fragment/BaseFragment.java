@@ -14,43 +14,44 @@ import okhttp3.Call;
 
 public class BaseFragment extends Fragment {
 
-	protected String TAG = this.getClass().getCanonicalName();
-	protected Handler mHandler = new Handler();
-	protected Activity mActivity;
-	protected View mRootView;
-	@Nullable
-	protected Call mCall;
-	protected boolean isAttachedToWindow;
+    protected String TAG = this.getClass().getCanonicalName();
+    protected Handler mHandler = new Handler();
+    protected Activity mActivity;
+    protected View mRootView;
+    @Nullable
+    protected Call mCall;
+    protected boolean isAttachedToWindow;
 
-	@CallSuper
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		mActivity = activity;
-	}
+    @CallSuper
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mActivity = activity;
+    }
 
-	@Nullable
-	@Override
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		return mRootView;
-	}
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
+            Bundle savedInstanceState) {
+        return mRootView;
+    }
 
-	@CallSuper
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		cancelCall();
-	}
+    @CallSuper
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        cancelCall();
+    }
 
-	protected void cancelCall() {
-		if (mCall != null) mCall.cancel();
-	}
+    protected void cancelCall() {
+        if (mCall != null) mCall.cancel();
+    }
 
-	public void onAttachedToWindow() {
-		isAttachedToWindow = true;
-	}
+    public void onAttachedToWindow() {
+        isAttachedToWindow = true;
+    }
 
-	public void onDetachedFromWindow() {
-		isAttachedToWindow = false;
-	}
+    public void onDetachedFromWindow() {
+        isAttachedToWindow = false;
+    }
 }
