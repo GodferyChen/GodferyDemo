@@ -35,7 +35,8 @@ public class BounceInOutInterpolator implements Interpolator {
             else if (input < (2.5 / 2.75))
                 return ((7.5625f * (input -= (2.25f / 2.75f)) * input + 0.9375f)) * 0.5f + 1 * 0.5f;
             else
-                return ((7.5625f * (input -= (2.625f / 2.75f)) * input + 0.984375f)) * 0.5f + 1 * 0.5f;
+                return ((7.5625f * (input -= (2.625f / 2.75f)) * input + 0.984375f)) * 0.5f + 1 *
+                        0.5f;
         }
     }
 }

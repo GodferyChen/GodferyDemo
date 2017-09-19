@@ -8,26 +8,26 @@ import android.support.v4.app.Fragment;
 
 public interface Callback {
 
-	void showEmpty(@DrawableRes int ivResId, @NonNull String tips);
+    void showEmpty(@DrawableRes int ivResId, @NonNull String tips);
 
-	void showEmpty(@LayoutRes int layoutResId);
+    void showEmpty(@LayoutRes int layoutResId);
 
-	void showLoading();
+    void showLoading();
 
-	void showLoading(@LayoutRes int layoutResId);
+    void showLoading(@LayoutRes int layoutResId);
 
-	void hideLoading();
+    void hideLoading();
 
-	void showReload();
+    void showReload();
 
-	void showReload(@DrawableRes int ivResId, @NonNull String tips, @NonNull String action);
+    void showReload(@DrawableRes int ivResId, @NonNull String tips, @NonNull String action);
 
-	void showReload(@LayoutRes int layoutResId);
+    void showReload(@LayoutRes int layoutResId);
 
-	void reload();
+    void reload();
 
-	void showContent(@NonNull Fragment fragment);
+    void showContent(@NonNull Fragment fragment);
 
-	@CheckResult
-	boolean isDestroy();
+    @CheckResult
+    boolean isDestroy();
 }
